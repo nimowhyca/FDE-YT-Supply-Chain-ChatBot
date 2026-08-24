@@ -1,0 +1,7 @@
+docker stop legacy-mssql
+
+docker start legacy-mssql
+
+docker run: Use only once to build/install the container.
+docker stop: Use when you want to pause it or shut down your PC.
+docker start: Use every day after that to wake it back up with your data intact.
