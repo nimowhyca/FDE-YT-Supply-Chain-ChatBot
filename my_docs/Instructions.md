@@ -13,6 +13,15 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=FdeEnterprisePass123!" ^
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=FdeEnterprisePass123!" \
    -p 1433:1433 --name legacy-mssql \
    -d mcr.microsoft.com/mssql/server:2022-latest
+
+# or multi-line with volume inside EC2
+docker run -v mssql_data:/var/opt/mssql \
+  -e "ACCEPT_EULA=Y" \
+  -e "MSSQL_SA_PASSWORD=FdeEnterprisePass123!" \
+  -p 1433:1433 \
+  --name legacy-mssql \
+  -d mcr.microsoft.com/mssql/server:2022-latest
+
 ```
 
 - Installation

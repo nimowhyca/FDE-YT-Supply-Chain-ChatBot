@@ -37,12 +37,14 @@ print("Connecting to legacy MSSQL Database...")
 # Use the pyodbc driver. (Ensure you have ODBC Driver 17 or 18 for SQL Server installed on your OS)
 params = urllib.parse.quote_plus(
     "DRIVER={ODBC Driver 18 for SQL Server};"
-    "SERVER=localhost,1433;"
+    # "SERVER=localhost,1433;"
     # For deployemnt : replace localhost with ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com
+    "SERVER=ec2-15-206-82-169.ap-south-1.compute.amazonaws.com,1433;"
     "DATABASE=master;"
     "UID=sa;"
     "PWD=FdeEnterprisePass123!;"
     "Encrypt=no;"
+    "TrustServerCertificate=yes;"
 )
 engine = create_engine(f"mssql+pyodbc:///?odbc_connect={params}")
 
